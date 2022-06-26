@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+:root {
+  --header-link-color: rgb(255, 255, 255);
+  --body-font: 'Open Sans', sans-serif;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: var(--body-font);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-column-gap: 1rem;
+          column-gap: 1rem;
+  background-image: -webkit-gradient(linear, left top, right bottom, from(red), to(#3232e4));
+  background-image: linear-gradient(to bottom right, red, #3232e4);
+  padding: 1rem 3rem;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+#logo {
+  height: 4rem;
+  width: 10rem;
+  border-radius: 2rem;
+}
+
+.nav-flex-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-column-gap: 1.5rem;
+          column-gap: 1.5rem;
+}
+
+.nav-links {
+  text-transform: capitalize;
+  text-decoration: none;
+  color: var(--header-link-color);
+}
+
+.download-link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: rgba(255, 255, 255, 0.2);
+  -webkit-column-gap: 1rem;
+          column-gap: 1rem;
+  text-decoration: none;
+  padding: 0.5em 0.8em;
+  border-radius: 1em;
+  color: var(--header-link-color);
+}
+/*# sourceMappingURL=style.css.map */
