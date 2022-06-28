@@ -36,8 +36,6 @@ body {
   padding: var(--body-padding);
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  position: -webkit-sticky;
-  position: sticky;
   top: 0;
   left: 0;
   right: 0;
@@ -192,12 +190,11 @@ body {
   -webkit-column-gap: 2rem;
           column-gap: 2rem;
   padding: var(--body-padding);
-  height: clamp(30rem, 90vh, 34rem);
   padding-top: 5em;
 }
 
 .about-section > .my-img {
-  height: 90%;
+  height: clamp(22rem, 70vh, 25rem);
   width: clamp(17rem, 50%, 22rem);
   position: relative;
 }
@@ -275,6 +272,22 @@ body {
   #menu-icon {
     display: block;
     padding: 0;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .about-section {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    text-align: center;
   }
 }
 /*# sourceMappingURL=style.css.map */
