@@ -15,6 +15,7 @@ body {
     margin: 0;
     padding: 0;
     background-image: linear-gradient(to bottom right,#0b1425,rgb(34, 34, 36));
+     color: white;
 }
 
 .header {
@@ -22,7 +23,6 @@ body {
     align-items: center;
     justify-content: space-between;
     column-gap: 2em;
-    background: transparent;
     padding: var(--body-padding);
     flex-wrap: wrap;
     position: sticky;
@@ -75,8 +75,19 @@ body {
     border-radius: 1em;
     color: var(--header-link-color);
 }
+
+@keyframes changingColor {
+    from {color:rgb(30, 255, 0);}
+    to {color:orangered;}
+}
+@keyframes changingbackground {
+    from {background-color:rgb(30, 255, 0);}
+    to {background-color:orangered;}
+}
+
 .introduction {
-    height: clamp(30rem,90vh,35rem);   
+    height: clamp(30rem,90vh,35rem);
+    min-width: 20rem;   
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -91,6 +102,57 @@ body {
     & > div:nth-child(2) {
         font-size: 4rem;
         color: rgb(30, 255, 0);
+        animation-name: changingColor;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+    }
+}
+
+.about-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    column-gap: 2rem;
+    padding: var(--body-padding);
+    height: clamp(30rem,90vh,34rem);
+    padding-top: 5em;
+    & > .my-img {
+        height: 90%;
+        width: clamp(17rem,50%,22rem);
+        position: relative;
+        & > img {
+            height: 100%;
+            width: 100%;
+        }
+        &::after {
+            content: "";
+            height: 0.5em;
+            width: 100%;
+            position: absolute;
+            left: -1em;
+            top: -1em;
+            animation-name: changingbackground;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+        }
+        &::before {
+            content: "";
+            background-color: rgb(30, 255, 0);
+            height: 100%;
+            width: 0.5em;
+            position: absolute;
+            left: -1em;
+            top: -1em;
+            animation-name: changingbackground;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+        }
+        
+    }
+    & > div {
+        width: 50%;
+        min-width: 15rem;
+        height: 90%;
     }
 }
 

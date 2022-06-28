@@ -18,6 +18,7 @@ body {
   padding: 0;
   background-image: -webkit-gradient(linear, left top, right bottom, from(#0b1425), to(#222224));
   background-image: linear-gradient(to bottom right, #0b1425, #222224);
+  color: white;
 }
 
 .header {
@@ -32,7 +33,6 @@ body {
           justify-content: space-between;
   -webkit-column-gap: 2em;
           column-gap: 2em;
-  background: transparent;
   padding: var(--body-padding);
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
@@ -106,8 +106,45 @@ body {
   color: var(--header-link-color);
 }
 
+@-webkit-keyframes changingColor {
+  from {
+    color: #1eff00;
+  }
+  to {
+    color: orangered;
+  }
+}
+
+@keyframes changingColor {
+  from {
+    color: #1eff00;
+  }
+  to {
+    color: orangered;
+  }
+}
+
+@-webkit-keyframes changingbackground {
+  from {
+    background-color: #1eff00;
+  }
+  to {
+    background-color: orangered;
+  }
+}
+
+@keyframes changingbackground {
+  from {
+    background-color: #1eff00;
+  }
+  to {
+    background-color: orangered;
+  }
+}
+
 .introduction {
   height: clamp(30rem, 90vh, 35rem);
+  min-width: 20rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -134,6 +171,77 @@ body {
 .introduction > div:nth-child(2) {
   font-size: 4rem;
   color: #1eff00;
+  -webkit-animation-name: changingColor;
+          animation-name: changingColor;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.about-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-column-gap: 2rem;
+          column-gap: 2rem;
+  padding: var(--body-padding);
+  height: clamp(30rem, 90vh, 34rem);
+  padding-top: 5em;
+}
+
+.about-section > .my-img {
+  height: 90%;
+  width: clamp(17rem, 50%, 22rem);
+  position: relative;
+}
+
+.about-section > .my-img > img {
+  height: 100%;
+  width: 100%;
+}
+
+.about-section > .my-img::after {
+  content: "";
+  height: 0.5em;
+  width: 100%;
+  position: absolute;
+  left: -1em;
+  top: -1em;
+  -webkit-animation-name: changingbackground;
+          animation-name: changingbackground;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.about-section > .my-img::before {
+  content: "";
+  background-color: #1eff00;
+  height: 100%;
+  width: 0.5em;
+  position: absolute;
+  left: -1em;
+  top: -1em;
+  -webkit-animation-name: changingbackground;
+          animation-name: changingbackground;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.about-section > div {
+  width: 50%;
+  min-width: 15rem;
+  height: 90%;
 }
 
 .my-photo {
