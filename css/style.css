@@ -238,7 +238,7 @@ body {
 .about-section > div {
   width: 50%;
   min-width: 15rem;
-  height: 90%;
+  height: clamp(22rem, 70vh, 25rem);
 }
 
 .my-photo {
