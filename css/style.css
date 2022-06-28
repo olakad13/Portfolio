@@ -1,10 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@900&display=swap");
 :root {
   --header-link-color: rgb(255, 255, 255);
   --body-font: 'Open Sans', sans-serif;
   --special-font: 'Roboto', sans-serif;
+  --name-font: 'Source Code Pro', monospace;
   --body-padding: 1em 10em;
+  --typewriter-speed: 4s;
+  --typewriter-character: 16;
+  --body-background: #0b1425;
 }
 
 * {
@@ -16,8 +21,7 @@
 body {
   margin: 0;
   padding: 0;
-  background-image: -webkit-gradient(linear, left top, right bottom, from(#0b1425), to(#222224));
-  background-image: linear-gradient(to bottom right, #0b1425, #222224);
+  background-color: var(--body-background);
   color: white;
 }
 
@@ -168,13 +172,88 @@ body {
 
 .introduction > div:nth-child(2) {
   font-size: 4rem;
-  color: #1eff00;
+  font-family: var(--name-font);
   -webkit-animation-name: changingColor;
           animation-name: changingColor;
   -webkit-animation-duration: 2s;
           animation-duration: 2s;
   -webkit-animation-iteration-count: infinite;
           animation-iteration-count: infinite;
+  -webkit-animation-delay: calc(var(--typewriter-speed) + 1s);
+          animation-delay: calc(var(--typewriter-speed) + 1s);
+  position: relative;
+}
+
+.introduction > div:nth-child(2)::before, .introduction > div:nth-child(2)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.introduction > div:nth-child(2)::before {
+  background: var(--body-background);
+  -webkit-animation: typewriter var(--typewriter-speed) steps(var(--typewriter-character)) 1s forwards;
+          animation: typewriter var(--typewriter-speed) steps(var(--typewriter-character)) 1s forwards;
+}
+
+.introduction > div:nth-child(2)::after {
+  width: 0.125em;
+  background-color: var(--header-link-color);
+  -webkit-animation: typewriter var(--typewriter-speed) steps(var(--typewriter-character)) 1s forwards, blink 500ms steps(var(--typewriter-character)) forwards infinite;
+          animation: typewriter var(--typewriter-speed) steps(var(--typewriter-character)) 1s forwards, blink 500ms steps(var(--typewriter-character)) forwards infinite;
+}
+
+.introduction > span:first-of-type {
+  opacity: 0;
+  -webkit-transform: translateY(5rem);
+          transform: translateY(5rem);
+  -webkit-animation: fadeInUp 2s forwards;
+          animation: fadeInUp 2s forwards;
+  -webkit-animation-delay: calc(var(--typewriter-speed) + 2s);
+          animation-delay: calc(var(--typewriter-speed) + 2s);
+}
+
+@-webkit-keyframes typewriter {
+  to {
+    left: 100%;
+  }
+}
+
+@keyframes typewriter {
+  to {
+    left: 100%;
+  }
+}
+
+@-webkit-keyframes blink {
+  to {
+    background: transparent;
+  }
+}
+
+@keyframes blink {
+  to {
+    background: transparent;
+  }
+}
+
+@-webkit-keyframes fadeInUp {
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
 }
 
 .about-section {

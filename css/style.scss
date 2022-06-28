@@ -1,10 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@900&display=swap');
 :root {
     --header-link-color: rgb(255, 255, 255);
     --body-font: 'Open Sans', sans-serif;
     --special-font: 'Roboto', sans-serif;
+    --name-font: 'Source Code Pro', monospace;
     --body-padding: 1em 10em;
+    --typewriter-speed: 4s;
+    --typewriter-character: 16;
+    --body-background: #0b1425;
 }
 * {
     box-sizing: border-box;
@@ -14,8 +19,8 @@
 body {
     margin: 0;
     padding: 0;
-    background-image: linear-gradient(to bottom right,#0b1425,rgb(34, 34, 36));
-     color: white;
+    background-color: var(--body-background);
+    color: white;
 }
 
 .header {
@@ -101,13 +106,49 @@ body {
     }
     & > div:nth-child(2) {
         font-size: 4rem;
-        color: rgb(30, 255, 0);
+        font-family: var(--name-font);
         animation-name: changingColor;
         animation-duration: 2s;
         animation-iteration-count: infinite;
+        animation-delay: calc(var(--typewriter-speed) + 1s);
+        position: relative;
+        &::before,&::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+        }
+        &::before {
+            background: var(--body-background);
+            animation: typewriter var(--typewriter-speed) steps(var(--typewriter-character)) 1s forwards;
+        }
+        &::after {
+            width: 0.125em;
+            background-color: var(--header-link-color);
+            animation: typewriter var(--typewriter-speed) steps(var(--typewriter-character)) 1s forwards,blink 500ms steps(var(--typewriter-character)) forwards infinite;
+        }
+    }
+    & > span:first-of-type {
+        opacity: 0;
+        transform: translateY(5rem);
+        animation: fadeInUp 2s forwards;
+        animation-delay: calc(var(--typewriter-speed) + 2s);
     }
 }
-
+@keyframes typewriter {
+    to {left: 100%}
+}
+@keyframes blink {
+    to {background: transparent;}
+}
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 .about-section {
     display: flex;
     justify-content: space-between;
